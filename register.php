@@ -73,25 +73,24 @@ include "connection.php";
                     </div>
                 </div>
 			</div>
-
 		</div>
     </div>
-
     <?php
     if(isset($_POST['submit1']))
     {
       $count=0;
-      $res=mysqli_query($link,"select * from registration where  username='$_POST[username]'")or die(mysqli_error($link));
-      $count=mysqli_num_rows($res);
-    }
+      $res= mysqli_query($link,"select * from registration where  username='$_POST[username]'") or die (mysqli_error($link));
+      $count= mysqli_num_rows($res);
     if($count>0)
-    {?>
+    { ?>
       <script type="text/javascript">
       document.getElementById("success").style.display="none";
       document.getElementById("failure").style.display="block";
       </script>
-    <?php } else {
-      {
+    <?php
+   }
+   else
+   {
         mysqli_query($link,"insert into registration values (NULL,'$_POST[name]','$_POST[username]','$_POST[password]', '$_POST[email]','$_POST[instagram_id]')");
         ?>
         <script type="text/javascript">
@@ -100,7 +99,8 @@ include "connection.php";
         </script>
         <?php
       }
-    } ?>
+    }
+    ?>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
